@@ -18,6 +18,7 @@ public class ArrayExercise {
         ex9();
         ex10();
         ex11();
+        ex12();
     }
 
     public static void ex1() {
@@ -215,7 +216,23 @@ public class ArrayExercise {
 
         scanner.close();
     }
+
+    public static void ex12() {
+        System.out.println("Exercise 12:");
+        int[][] twoDArray = {
+                {1, 2, 3},
+                {2, 4, 6},
+                {3, 6, 9}
+        };
+
+
+        System.out.print("Diagonal elements: ");
+        for (int i = 0; i < twoDArray.length; i++) {
+            System.out.print(twoDArray[i][i] + " ");
+        }
+    }
 }
+
 
 
 
