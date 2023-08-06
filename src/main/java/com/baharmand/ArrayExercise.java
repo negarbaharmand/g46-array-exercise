@@ -14,6 +14,7 @@ public class ArrayExercise {
         ex7();
         ex8();
         ex9();
+        ex10();
     }
 
     public static void ex1() {
@@ -158,6 +159,24 @@ public class ArrayExercise {
 
             return newArray;
         }
+         public static void ex10() {
+             System.out.println("Exercise 10:");
+             int[][] multiplicationTable = new int[10][10];
 
-}
+             for (int i = 0; i < 10; i++) {
+                 for (int j = 0; j < 10; j++) {
+                     multiplicationTable[i][j] = (i + 1) * (j + 1);
+                 }
+             }
+
+             for (int i = 0; i < 10; i++) {
+                 for (int j = 0; j < 10; j++) {
+                     System.out.print(multiplicationTable[i][j] + "\t");
+                 }
+                 System.out.println();
+             }
+         }
+         }
+
+
 
