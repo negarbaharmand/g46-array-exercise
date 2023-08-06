@@ -1,6 +1,8 @@
 package com.baharmand;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class ArrayExercise {
     public static void main(String[] args) {
@@ -15,6 +17,7 @@ public class ArrayExercise {
         ex8();
         ex9();
         ex10();
+        ex11();
     }
 
     public static void ex1() {
@@ -98,12 +101,13 @@ public class ArrayExercise {
             System.out.print(num + " ");
         }
         System.out.print("\nOdd Array: ");
-        for( int num : numbers) {
-            if (num % 2 != 0){
+        for (int num : numbers) {
+            if (num % 2 != 0) {
                 System.out.println(num + " ");
             }
         }
     }
+
     public static void ex8() {
         System.out.println("Exercise 8:");
         int[] arr = {20, 20, 40, 20, 30, 40, 50, 60, 50};
@@ -117,6 +121,7 @@ public class ArrayExercise {
             System.out.print(num + " ");
         }
     }
+
     public static int[] removeDuplicates(int[] arr) {
         Arrays.sort(arr);
 
@@ -150,33 +155,70 @@ public class ArrayExercise {
         System.out.println("Original Array: " + Arrays.toString(originalArray));
         System.out.println("Expanded Array: " + Arrays.toString(expandedArray));
     }
-        public static int[] addElements ( int[] arr, int...elements){
-            int[] newArray = Arrays.copyOf(arr, arr.length + elements.length);
 
-            for (int i = 0; i < elements.length; i++) {
-                newArray[arr.length + i] = elements[i];
+    public static int[] addElements(int[] arr, int... elements) {
+        int[] newArray = Arrays.copyOf(arr, arr.length + elements.length);
+
+        for (int i = 0; i < elements.length; i++) {
+            newArray[arr.length + i] = elements[i];
+        }
+
+        return newArray;
+    }
+
+    public static void ex10() {
+        System.out.println("Exercise 10:");
+        int[][] multiplicationTable = new int[10][10];
+
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                multiplicationTable[i][j] = (i + 1) * (j + 1);
+            }
+        }
+
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                System.out.print(multiplicationTable[i][j] + "\t");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void ex11() {
+        System.out.println("Exercise 11:");
+        System.out.println("The specific value is 1.");
+        Scanner scanner = new Scanner(System.in);
+        //Create ArrayList class, so we can use add, size, get and set methods
+        ArrayList<Integer> numbers = new ArrayList<>();
+        int specificValue = 1;
+        while (true) {
+            System.out.print("Enter an integer (or the specific value to stop): ");
+            int input = scanner.nextInt();
+
+            if (input == specificValue) {
+                break;
             }
 
-            return newArray;
+            numbers.add(input);
         }
-         public static void ex10() {
-             System.out.println("Exercise 10:");
-             int[][] multiplicationTable = new int[10][10];
+        System.out.println("Array elements entered by the user: " + numbers);
 
-             for (int i = 0; i < 10; i++) {
-                 for (int j = 0; j < 10; j++) {
-                     multiplicationTable[i][j] = (i + 1) * (j + 1);
-                 }
-             }
+        // Reverse the array elements
+        int size = numbers.size();
+        for (int i = 0; i < size / 2; i++) {
+            int temp = numbers.get(i);
+            numbers.set(i, numbers.get(size - 1 - i));
+            numbers.set(size - 1 - i, temp);
+        }
 
-             for (int i = 0; i < 10; i++) {
-                 for (int j = 0; j < 10; j++) {
-                     System.out.print(multiplicationTable[i][j] + "\t");
-                 }
-                 System.out.println();
-             }
-         }
-         }
+        System.out.println("Reversed array elements: " + numbers);
+
+        scanner.close();
+    }
+}
+
+
+
 
 
 
